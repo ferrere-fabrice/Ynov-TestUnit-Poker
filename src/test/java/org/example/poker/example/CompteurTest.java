@@ -6,7 +6,6 @@ import org.example.poker.table.Dealer;
 import org.example.poker.tools.Output;
 import org.junit.jupiter.api.*;
 
-import java.util.Arrays;
 import java.util.function.Predicate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -316,7 +315,7 @@ public class CompteurTest {
                 Card.fromString("XP"));
 
         //when
-        Dealer dealerResult = Dealer.SimpleThreeOfKind(handA, handB);
+        Dealer dealerResult = Dealer.ThreeOfKind(handA, handB);
 
         // assert
         assertEquals(dealerResult.winners.length, 1);
@@ -326,7 +325,37 @@ public class CompteurTest {
 
     // Q9 : Brelan draw
     @Test
-    public void threeOfKindSimple_Draw() {
+    public void twoHandHaveThreeOfKind() {
+
+        Output.PrintStartMessageTest();
+
+        //given
+        Hand handA = new Hand(
+                Card.fromString("9T"),
+                Card.fromString("5K"),
+                Card.fromString("DK"),
+                Card.fromString("DC"),
+                Card.fromString("DP"));
+
+        Hand handB = new Hand(
+                Card.fromString("2P"),
+                Card.fromString("4P"),
+                Card.fromString("RK"),
+                Card.fromString("RC"),
+                Card.fromString("RP"));
+
+        //when
+        Dealer dealerResult = Dealer.ThreeOfKind(handA, handB);
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
+        assertEquals(handB, dealerResult.winners[0]);
+        Output.PrintEndMessageTest(dealerResult);
+    }
+
+    // Q9 : Brelan draw
+    @Test
+    public void threeOfKind_Draw() {
 
         Output.PrintStartMessageTest();
 
@@ -346,7 +375,7 @@ public class CompteurTest {
                 Card.fromString("RP"));
 
         //when
-        Dealer dealerResult = Dealer.SimpleThreeOfKind(handA, handB);
+        Dealer dealerResult = Dealer.ThreeOfKind(handA, handB);
 
         // assert
         assertEquals(dealerResult.winners.length, 2);

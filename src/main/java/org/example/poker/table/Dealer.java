@@ -143,7 +143,7 @@ public class Dealer {
     }
 
 
-    public static Dealer SimpleThreeOfKind(Hand hand1, Hand hand2) {
+    public static Dealer ThreeOfKind(Hand hand1, Hand hand2) {
         Map<Integer, Long> resultHand1 = GetResultHand(hand1);
         Map<Integer, Long> resultHand2 = GetResultHand(hand2);
 
