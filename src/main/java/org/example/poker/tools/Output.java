@@ -14,9 +14,8 @@ public class Output {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
-    public static void PrintMessage(String message , String color){
-        String col = color == null ? color = ANSI_RESET : color;
-        System.out.println(col + message.toUpperCase() + ANSI_RESET);
+    public static void PrintStartMessageTest(){
+        System.out.println(ANSI_BLUE+ Thread.currentThread().getStackTrace()[2].getMethodName() + ANSI_RESET);
     }
 
 

@@ -27,7 +27,7 @@ public class CompteurTest {
 
     @BeforeEach
     public void setUp() {
-/*        System.out.println("Ce code est exécuté avant chaque test");*/
+        /*        System.out.println("Ce code est exécuté avant chaque test");*/
     }
 
     @AfterEach
@@ -39,13 +39,13 @@ public class CompteurTest {
 
     @AfterAll
     public static void globalTearDown() {
-/*        System.out.println("Ce code est exécuté une seule fois après l'ensemble des tests");*/
+        /*        System.out.println("Ce code est exécuté une seule fois après l'ensemble des tests");*/
     }
 
 
-
     @Test
-    public void TestBetterCard_OneWinner(){
+    public void TestBetterCard_OneWinner() {
+        Output.PrintStartMessageTest();
         //given
         Card SimilarCard = Card.fromString("AP");
         Hand handA = new Hand(
@@ -69,12 +69,12 @@ public class CompteurTest {
         //then
         assertEquals(Arrays.stream(dealerResult.winners).count(), 1);
         assertEquals(dealerResult.winners[0], handB, dealerResult.message);
-        System.out.println(dealerResult.toString());
+        Output.PrintEndMessageTest(dealerResult);
     }
 
     @Test
-    public void TestBetterCard_PerfectDraw(){
-
+    public void TestBetterCard_PerfectDraw() {
+        Output.PrintStartMessageTest();
         //given
         Card SimilarCard1 = Card.fromString("AP");
         Card SimilarCard2 = Card.fromString("AC");
@@ -102,11 +102,12 @@ public class CompteurTest {
 
         //then
         assertEquals(Arrays.stream(dealerResult.winners).count(), 2);
-        System.out.println(dealerResult.toString());
+        Output.PrintEndMessageTest(dealerResult);
     }
 
     @Test
     public void haveBetterTwoPair() {
+        Output.PrintStartMessageTest();
         Card SimilarCard1 = Card.fromString("AP");
         Card SimilarCard2 = Card.fromString("AC");
         Card SimilarCard3 = Card.fromString("RK");
@@ -127,12 +128,13 @@ public class CompteurTest {
 
         Dealer dealerResult = Dealer.betterTwoPair(handA, handB);
         assertEquals(handA, dealerResult.winners[0]);
-        System.out.println(dealerResult.toString());
+        Output.PrintEndMessageTest(dealerResult);
     }
 
     // Q3
     @Test
     public void haveBetterPairVsNone() {
+        Output.PrintStartMessageTest();
         Hand handA = new Hand(
                 Card.fromString("AP"),
                 Card.fromString("9C"),
@@ -149,12 +151,13 @@ public class CompteurTest {
 
         Dealer dealerResult = Dealer.betterPair(handA, handB);
         assertEquals(handB, dealerResult.winners[0]);
-        System.out.println(dealerResult.toString());
+        Output.PrintEndMessageTest(dealerResult);
     }
 
     // Q4
     @Test
     public void haveBetterPair() {
+        Output.PrintStartMessageTest();
         Hand handA = new Hand(
                 Card.fromString("AP"),
                 Card.fromString("AC"),
@@ -171,12 +174,13 @@ public class CompteurTest {
 
         Dealer dealerResult = Dealer.betterPair(handA, handB);
         assertEquals(handA, dealerResult.winners[0]);
-        System.out.println(dealerResult.toString());
+        Output.PrintEndMessageTest(dealerResult);
     }
 
     // Q5
     @Test
     public void haveSamePairGetStrongestCard() {
+        Output.PrintStartMessageTest();
         Hand handA = new Hand(
                 Card.fromString("AP"),
                 Card.fromString("AC"),
@@ -193,14 +197,14 @@ public class CompteurTest {
 
         Dealer dealerResult = Dealer.betterPair(handA, handB);
         assertEquals(handA, dealerResult.winners[0]);
-        System.out.println(dealerResult.toString());
+        Output.PrintEndMessageTest(dealerResult);
     }
-
 
 
     // Q6
     @Test
     public void sameTwoPairVsOnePair() {
+        Output.PrintStartMessageTest();
         Hand handA = new Hand(
                 Card.fromString("AP"),
                 Card.fromString("AC"),
@@ -217,13 +221,13 @@ public class CompteurTest {
 
         Dealer dealerResult = Dealer.betterTwoPair(handA, handB);
         assertEquals(handA, dealerResult.winners[0]);
-        System.out.println(dealerResult.toString());
+        Output.PrintEndMessageTest(dealerResult);
     }
 
     // Q7
     @Test
     public void sameStrongestPairCompareSecondPair() {
-
+        Output.PrintStartMessageTest();
         Hand handA = new Hand(
                 Card.fromString("6P"),
                 Card.fromString("6C"),
@@ -240,14 +244,14 @@ public class CompteurTest {
 
         Dealer dealerResult = Dealer.betterTwoPair(handA, handB);
         assertEquals(handB, dealerResult.winners[0]);
-        System.out.println(dealerResult.toString());
+        Output.PrintEndMessageTest(dealerResult);
     }
 
 
     // Q8
     @Test
     public void twoSamePairButDifferentLastCard() {
-        Output.PrintMessage(String.valueOf(Thread.currentThread().getStackTrace()), Output.ANSI_BLUE);
+        Output.PrintStartMessageTest();
         Hand handA = new Hand(
                 Card.fromString("3P"),
                 Card.fromString("3C"),
