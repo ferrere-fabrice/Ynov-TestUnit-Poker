@@ -162,7 +162,7 @@ public class Dealer {
             return new Dealer("La main B gagne", new Hand[]{hand2});
         }
 
-        return new Dealer("Égalité parfait entre la main A et B", new Hand[]{hand1, hand2});
+        return CompareStrongestCards(hand1,hand2);
     }
 
 

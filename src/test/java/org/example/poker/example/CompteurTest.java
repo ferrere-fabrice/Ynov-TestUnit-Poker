@@ -355,7 +355,7 @@ public class CompteurTest {
 
     // Q9 : Brelan draw
     @Test
-    public void threeOfKind_Draw() {
+    public void threeOfKind_PerfectDraw() {
 
         Output.PrintStartMessageTest();
 
@@ -368,8 +368,8 @@ public class CompteurTest {
                 Card.fromString("RP"));
 
         Hand handB = new Hand(
-                Card.fromString("2P"),
-                Card.fromString("4P"),
+                Card.fromString("9P"),
+                Card.fromString("5P"),
                 Card.fromString("RK"),
                 Card.fromString("RC"),
                 Card.fromString("RP"));
@@ -379,6 +379,36 @@ public class CompteurTest {
 
         // assert
         assertEquals(dealerResult.winners.length, 2);
+        Output.PrintEndMessageTest(dealerResult);
+    }
+
+    // Q10 : Brelan draw latest card
+    @Test
+    public void threeOfKindDraw_LatestCard() {
+
+        Output.PrintStartMessageTest();
+
+        //given
+        Hand handA = new Hand(
+                Card.fromString("5T"),
+                Card.fromString("4K"),
+                Card.fromString("RK"),
+                Card.fromString("RC"),
+                Card.fromString("RP"));
+
+        Hand handB = new Hand(
+                Card.fromString("3P"),
+                Card.fromString("4P"),
+                Card.fromString("RK"),
+                Card.fromString("RC"),
+                Card.fromString("RP"));
+
+        //when
+        Dealer dealerResult = Dealer.ThreeOfKind(handA, handB);
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
+        assertEquals(handA, dealerResult.winners[0]);
         Output.PrintEndMessageTest(dealerResult);
     }
 }
