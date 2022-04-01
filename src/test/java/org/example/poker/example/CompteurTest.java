@@ -323,7 +323,7 @@ public class CompteurTest {
         Output.PrintEndMessageTest(dealerResult);
     }
 
-    // Q9 : Brelan draw
+    // Q10 : Brelan draw
     @Test
     public void twoHandHaveThreeOfKind() {
 
@@ -353,7 +353,7 @@ public class CompteurTest {
         Output.PrintEndMessageTest(dealerResult);
     }
 
-    // Q9 : Brelan draw
+    // Brelan perfect draw
     @Test
     public void threeOfKind_PerfectDraw() {
 
@@ -382,7 +382,7 @@ public class CompteurTest {
         Output.PrintEndMessageTest(dealerResult);
     }
 
-    // Q10 : Brelan draw latest card
+    // Q11 : Brelan draw latest card
     @Test
     public void threeOfKindDraw_LatestCard() {
 
