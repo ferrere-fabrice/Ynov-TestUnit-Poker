@@ -296,7 +296,7 @@ public class CompteurTest {
 
     // Q9 : Brelan
     @Test
-    public void threeOfKindSimple() {
+    public void threeOfKind_Simple() {
 
         Output.PrintStartMessageTest();
 
@@ -309,8 +309,8 @@ public class CompteurTest {
                 Card.fromString("RP"));
 
         Hand handB = new Hand(
-                Card.fromString("2P"),
-                Card.fromString("3C"),
+                Card.fromString("5K"),
+                Card.fromString("2T"),
                 Card.fromString("8K"),
                 Card.fromString("9C"),
                 Card.fromString("XP"));
@@ -324,23 +324,23 @@ public class CompteurTest {
         Output.PrintEndMessageTest(dealerResult);
     }
 
-    // Q9 : Brelan
+    // Q9 : Brelan draw
     @Test
-    public void threeOfKindSimpleDraw() {
+    public void threeOfKindSimple_Draw() {
 
         Output.PrintStartMessageTest();
 
         //given
         Hand handA = new Hand(
-                Card.fromString("2P"),
-                Card.fromString("3C"),
+                Card.fromString("9T"),
+                Card.fromString("5K"),
                 Card.fromString("RK"),
                 Card.fromString("RC"),
                 Card.fromString("RP"));
 
         Hand handB = new Hand(
                 Card.fromString("2P"),
-                Card.fromString("3C"),
+                Card.fromString("4P"),
                 Card.fromString("RK"),
                 Card.fromString("RC"),
                 Card.fromString("RP"));
