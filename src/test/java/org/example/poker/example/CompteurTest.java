@@ -9,8 +9,7 @@ import org.junit.jupiter.api.*;
 import java.util.Arrays;
 import java.util.function.Predicate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 // Cette classe est une suite de tests servant d'exemple et d'aide-mémoire de la syntaxe Java et JUnit.
 // Elle n'est pas nécessaire à la réalisation de l'exercice.
@@ -66,8 +65,8 @@ public class CompteurTest {
         //when
         Dealer dealerResult = Dealer.CompareStrongestCards(handA, handB);
 
-        //then
-        assertEquals(Arrays.stream(dealerResult.winners).count(), 1);
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
         assertEquals(dealerResult.winners[0], handB, dealerResult.message);
         Output.PrintEndMessageTest(dealerResult);
     }
@@ -101,7 +100,7 @@ public class CompteurTest {
         Dealer dealerResult = Dealer.CompareStrongestCards(handA, handB);
 
         //then
-        assertEquals(Arrays.stream(dealerResult.winners).count(), 2);
+        assertEquals(dealerResult.winners.length, 2);
         Output.PrintEndMessageTest(dealerResult);
     }
 
@@ -127,6 +126,9 @@ public class CompteurTest {
                 Card.fromString("3P"));
 
         Dealer dealerResult = Dealer.betterTwoPair(handA, handB);
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
         assertEquals(handA, dealerResult.winners[0]);
         Output.PrintEndMessageTest(dealerResult);
     }
@@ -150,6 +152,9 @@ public class CompteurTest {
                 Card.fromString("2P"));
 
         Dealer dealerResult = Dealer.betterPair(handA, handB);
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
         assertEquals(handB, dealerResult.winners[0]);
         Output.PrintEndMessageTest(dealerResult);
     }
@@ -173,6 +178,9 @@ public class CompteurTest {
                 Card.fromString("2P"));
 
         Dealer dealerResult = Dealer.betterPair(handA, handB);
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
         assertEquals(handA, dealerResult.winners[0]);
         Output.PrintEndMessageTest(dealerResult);
     }
@@ -196,6 +204,10 @@ public class CompteurTest {
                 Card.fromString("2P"));
 
         Dealer dealerResult = Dealer.betterPair(handA, handB);
+
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
         assertEquals(handA, dealerResult.winners[0]);
         Output.PrintEndMessageTest(dealerResult);
     }
@@ -220,6 +232,10 @@ public class CompteurTest {
                 Card.fromString("2P"));
 
         Dealer dealerResult = Dealer.betterTwoPair(handA, handB);
+
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
         assertEquals(handA, dealerResult.winners[0]);
         Output.PrintEndMessageTest(dealerResult);
     }
@@ -243,6 +259,9 @@ public class CompteurTest {
                 Card.fromString("3P"));
 
         Dealer dealerResult = Dealer.betterTwoPair(handA, handB);
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
         assertEquals(handB, dealerResult.winners[0]);
         Output.PrintEndMessageTest(dealerResult);
     }
@@ -267,8 +286,41 @@ public class CompteurTest {
                 Card.fromString("RP"));
 
         Dealer dealerResult = Dealer.betterTwoPair(handA, handB);
+
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
         assertEquals(handB, dealerResult.winners[0]);
         Output.PrintEndMessageTest(dealerResult);
     }
 
+    // Q9 : Brelan
+    @Test
+    public void threeOfKindSimple() {
+
+        Output.PrintStartMessageTest();
+
+        //given
+        Hand handA = new Hand(
+                Card.fromString("2P"),
+                Card.fromString("3C"),
+                Card.fromString("AK"),
+                Card.fromString("AC"),
+                Card.fromString("AP"));
+
+        Hand handB = new Hand(
+                Card.fromString("2P"),
+                Card.fromString("3C"),
+                Card.fromString("4K"),
+                Card.fromString("5C"),
+                Card.fromString("6P"));
+
+        //when
+        Dealer dealerResult = Dealer.ThreeOfKind(handA, handB);
+
+        // assert
+        assertEquals(dealerResult.winners.length, 1);
+        assertEquals(handA, dealerResult.winners[0]);
+        Output.PrintEndMessageTest(dealerResult);
+    }
 }

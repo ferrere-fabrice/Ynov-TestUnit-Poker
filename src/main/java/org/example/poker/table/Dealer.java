@@ -142,6 +142,22 @@ public class Dealer {
         return new Dealer("Égalité parfait entre la main A et B", new Hand[]{hand1, hand2});
     }
 
+
+    public static Dealer ThreeOfKind(Hand hand1, Hand hand2) {
+        Map<Integer, Long> resultHand1 = GetResultHand(hand1);
+        Map<Integer, Long> resultHand2 = GetResultHand(hand2);
+
+
+        // sécurisé le code s'il n'y a pas de brelan ? return null et dans ce cas on passe au cas suivant
+
+
+
+
+        return new Dealer("Égalité parfait entre la main A et B", new Hand[]{hand1, hand2});
+    }
+
+
+
     @Override
     public String toString() {
 
