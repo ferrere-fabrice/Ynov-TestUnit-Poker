@@ -15,7 +15,6 @@ public class Dealer {
 
     public Hand[] winners;
 
-
     public static Map<Integer, Long> GetResultHand(Hand hand) {
         Map<Integer, Long> countHand = hand.getCards().stream().collect(Collectors.groupingBy(e -> (Integer) e.value.score, Collectors.counting()));
 
@@ -142,7 +141,6 @@ public class Dealer {
         return new Dealer("Égalité parfait entre la main A et B", new Hand[]{hand1, hand2});
     }
 
-
     public static Dealer ThreeOfKind(Hand hand1, Hand hand2) {
         Map<Integer, Long> resultHand1 = GetResultHand(hand1);
         Map<Integer, Long> resultHand2 = GetResultHand(hand2);
@@ -164,8 +162,6 @@ public class Dealer {
 
         return CompareStrongestCards(hand1,hand2);
     }
-
-
 
     @Override
     public String toString() {

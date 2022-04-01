@@ -211,7 +211,6 @@ public class CompteurTest {
         Output.PrintEndMessageTest(dealerResult);
     }
 
-
     // Q6
     @Test
     public void sameTwoPairVsOnePair() {
@@ -264,7 +263,6 @@ public class CompteurTest {
         assertEquals(handB, dealerResult.winners[0]);
         Output.PrintEndMessageTest(dealerResult);
     }
-
 
     // Q8
     @Test
