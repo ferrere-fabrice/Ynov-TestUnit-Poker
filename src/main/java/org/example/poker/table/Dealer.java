@@ -143,15 +143,24 @@ public class Dealer {
     }
 
 
-    public static Dealer ThreeOfKind(Hand hand1, Hand hand2) {
+    public static Dealer SimpleThreeOfKind(Hand hand1, Hand hand2) {
         Map<Integer, Long> resultHand1 = GetResultHand(hand1);
         Map<Integer, Long> resultHand2 = GetResultHand(hand2);
+
+        Map.Entry<Integer,Long> CardMaxhandA = resultHand1.entrySet().stream().max(Map.Entry.comparingByValue()).get();
+        Map.Entry<Integer,Long> CardMaxhandB = resultHand2.entrySet().stream().max(Map.Entry.comparingByValue()).get();
 
 
         // sécurisé le code s'il n'y a pas de brelan ? return null et dans ce cas on passe au cas suivant
 
+        //
+        if(CardMaxhandA.getKey() > CardMaxhandB.getKey()){
+            return new Dealer("La main A gagne", new Hand[]{hand1});
+        }
 
-
+        if(CardMaxhandA.getKey() < CardMaxhandB.getKey()){
+            return new Dealer("La main B gagne", new Hand[]{hand2});
+        }
 
         return new Dealer("Égalité parfait entre la main A et B", new Hand[]{hand1, hand2});
     }

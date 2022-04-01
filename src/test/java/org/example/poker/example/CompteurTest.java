@@ -304,23 +304,52 @@ public class CompteurTest {
         Hand handA = new Hand(
                 Card.fromString("2P"),
                 Card.fromString("3C"),
-                Card.fromString("AK"),
-                Card.fromString("AC"),
-                Card.fromString("AP"));
+                Card.fromString("RK"),
+                Card.fromString("RC"),
+                Card.fromString("RP"));
 
         Hand handB = new Hand(
                 Card.fromString("2P"),
                 Card.fromString("3C"),
-                Card.fromString("4K"),
-                Card.fromString("5C"),
-                Card.fromString("6P"));
+                Card.fromString("8K"),
+                Card.fromString("9C"),
+                Card.fromString("XP"));
 
         //when
-        Dealer dealerResult = Dealer.ThreeOfKind(handA, handB);
+        Dealer dealerResult = Dealer.SimpleThreeOfKind(handA, handB);
 
         // assert
         assertEquals(dealerResult.winners.length, 1);
         assertEquals(handA, dealerResult.winners[0]);
+        Output.PrintEndMessageTest(dealerResult);
+    }
+
+    // Q9 : Brelan
+    @Test
+    public void threeOfKindSimpleDraw() {
+
+        Output.PrintStartMessageTest();
+
+        //given
+        Hand handA = new Hand(
+                Card.fromString("2P"),
+                Card.fromString("3C"),
+                Card.fromString("RK"),
+                Card.fromString("RC"),
+                Card.fromString("RP"));
+
+        Hand handB = new Hand(
+                Card.fromString("2P"),
+                Card.fromString("3C"),
+                Card.fromString("RK"),
+                Card.fromString("RC"),
+                Card.fromString("RP"));
+
+        //when
+        Dealer dealerResult = Dealer.SimpleThreeOfKind(handA, handB);
+
+        // assert
+        assertEquals(dealerResult.winners.length, 2);
         Output.PrintEndMessageTest(dealerResult);
     }
 }
